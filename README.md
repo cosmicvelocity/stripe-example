@@ -15,7 +15,7 @@
    1. リダイレクトパラメーターから Setup Intent を取得
    2. テスト決済を実行
 5. サーバーサイド
-   1. Setup Intent の Payment Method を使用して Payment Intent を登録して決済の実行
+   1. Setup Intent の Payment Method を使用して Payment Intent を登録して決済の実行 (実際は管理者が行う事を想定)
 
 参考
 
@@ -24,7 +24,7 @@
 
 ## 現在の課題
 
-3DS で認証が設定されている場合、決済実行時に下記のように `next_action` が `use_stripe_sdk` になってしまい、決済が確定しない。
+3DS で認証が設定されている場合、決済実行時に下記のように `next_action` が `use_stripe_sdk` になってしまい、決済が確定しない。  
 ※事前に `confirmSetup` で認証しているため、決済時には再認証は不要となる認識でいた。
 
 ```json
