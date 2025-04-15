@@ -1,0 +1,30 @@
+{
+  "name": "example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "format": "prettier --config ./.prettier.json --ignore-path ./.prettierignore --write .",
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@stripe/react-stripe-js": "^3.6.0",
+    "@stripe/stripe-js": "^7.0.0",
+    "next": "15.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "stripe": "^18.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5"
+  }
+}

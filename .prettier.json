@@ -1,0 +1,38 @@
+{
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": ["*.cjs", "*.js", "*.jsx", "*.mjs"],
+      "options": {
+        "arrowParens": "always"
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx", "*.mts"],
+      "options": {
+        "arrowParens": "always"
+      }
+    },
+    {
+      "files": ["*.css", "*.scss"],
+      "options": {
+        "arrowParens": "always"
+      }
+    },
+    {
+      "files": ["*.yml"],
+      "options": {
+        "arrowParens": "always"
+      }
+    },
+    {
+      "files": ["*.json"],
+      "options": {
+        "arrowParens": "always"
+      }
+    }
+  ],
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false
+}
