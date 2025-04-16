@@ -18,27 +18,37 @@ export default function Home() {
   const handleClick = () => {
     if (!stripe || !elements) return;
 
-    elements.submit().then(({ error, selectedPaymentMethod }) => {
-      console.log("selectedPaymentMethod", selectedPaymentMethod);
-      console.log("error", error);
+    elements
+      .submit()
+      .then(({ error, selectedPaymentMethod }) => {
+        console.log("selectedPaymentMethod", selectedPaymentMethod);
+        console.log("error", error);
 
-      if (!selectedPaymentMethod) return;
+        if (!selectedPaymentMethod) return;
 
-      return stripe
-        .confirmSetup({
-          clientSecret,
-          elements,
-          confirmParams: {
-            return_url:
-              globalThis.location.origin + "/confirm?customerId=" + customerId,
-          },
-          redirect: "always",
-        })
-        .then(({ error, setupIntent }) => {
-          console.log("setupIntent", setupIntent);
-          console.log("error", error);
-        });
-    });
+        return stripe
+          .confirmSetup({
+            clientSecret,
+            elements,
+            confirmParams: {
+              return_url:
+                globalThis.location.origin +
+                "/confirm?customerId=" +
+                customerId,
+            },
+            redirect: "always",
+          })
+          .then(({ error, setupIntent }) => {
+            console.log("setupIntent", setupIntent);
+            console.log("error", error);
+          })
+          .catch((err) => {
+            console.log("Error.", err);
+          });
+      })
+      .catch((err) => {
+        console.log("Error.", err);
+      });
   };
 
   return (

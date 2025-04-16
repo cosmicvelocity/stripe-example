@@ -14,8 +14,16 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   // SetupIntent を作成します。
   const setupIntent = await stripe.setupIntents.create({
+    automatic_payment_methods: {
+      allow_redirects: "never",
+      enabled: true,
+    },
     customer: customer.id,
-    payment_method_types: ["card"],
+    payment_method_options: {
+      card: {
+        request_three_d_secure: "any",
+      },
+    },
     usage: "off_session",
   });
   console.log("setupIntent", JSON.stringify(setupIntent, null, "  "));

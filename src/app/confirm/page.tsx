@@ -33,6 +33,8 @@ export default function Page() {
 
     stripePromise
       .then((stripe) => {
+        if (!stripe) return;
+
         // Setup Intent を取得
         return stripe
           .retrieveSetupIntent(setupIntentClientSecret)
@@ -62,6 +64,12 @@ export default function Page() {
       .then((response) => response.json())
       .then((json) => {
         console.log("json", json);
+
+        if (json.status === "OK") {
+          globalThis.alert("決済に成功しました。");
+        } else {
+          globalThis.alert("決済に失敗しました。");
+        }
       });
   };
 
